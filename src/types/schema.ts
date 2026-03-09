@@ -6,16 +6,14 @@ export interface UserCollection {
   phone_number: string | null;
   balance: string;
   status: string;
-  user_type: string; // e.g., "user"
-  user_mode: string; // e.g., "job"
+  user_type: string;
+  user_mode: string;
   device_type: string | null;
-  OTP_created_at: string | null; // ISO 8601 format or null
-  email_verified_at: string | null; // ISO 8601 format or null
-  phone_number_verified_at: string | null; // ISO 8601 format or null
-  created_at: Date; // ISO 8601 format
-  updated_at: Date; // ISO 8601 format
-
-  // User profile
+  OTP_created_at: string | null;
+  email_verified_at: string | null;
+  phone_number_verified_at: string | null;
+  created_at: Date;
+  updated_at: Date;
   user_profile: {
     user_uuid: string;
     first_name: string | null;
@@ -25,11 +23,9 @@ export interface UserCollection {
     country: string | null;
     city: string | null;
     town: string | null;
-    created_at: string; // ISO 8601 format
-    updated_at: string; // ISO 8601 format
+    created_at: string;
+    updated_at: string;
   };
-
-  // User job profile
   user_job_profile: {
     user_uuid: string;
     headline: string | null;
@@ -46,8 +42,8 @@ export interface UserCollection {
     salary: string | null;
     locations: string | null;
     socials: string | null;
-    created_at: string; // ISO 8601 format
-    updated_at: string; // ISO 8601 format
+    created_at: string;
+    updated_at: string;
   };
 }
 
@@ -59,4 +55,92 @@ export interface UsersInfo {
   prev_page_url: string | null;
   total: number;
   per_page: number;
+}
+
+export type JobStatus = 'active' | 'closed' | 'draft';
+export type JobType = 'Remote' | 'Hybrid' | 'Onsite';
+
+export interface Job {
+  id: string;
+  title: string;
+  company: string;
+  type: JobType;
+  category: string;
+  applicants_count: number;
+  status: JobStatus;
+  posted_date: string;
+  description: string;
+  location: string;
+  salary_range: string;
+}
+
+export type CandidateStatus = 'active' | 'inactive' | 'hired' | 'blacklisted';
+
+export interface Candidate {
+  id: string;
+  name: string;
+  email: string;
+  avatar: string | null;
+  skills: string[];
+  location: string;
+  status: CandidateStatus;
+  applied_jobs: number;
+  experience_years: number;
+  created_at: string;
+}
+
+export type ApplicationStatus = 'applied' | 'shortlisted' | 'hired' | 'rejected';
+
+export interface Application {
+  id: string;
+  candidate_name: string;
+  candidate_avatar: string | null;
+  candidate_email: string;
+  job_title: string;
+  company: string;
+  status: ApplicationStatus;
+  applied_date: string;
+}
+
+export type CourseStatus = 'published' | 'draft' | 'coming_soon';
+
+export interface Course {
+  id: string;
+  title: string;
+  thumbnail: string | null;
+  instructor: string;
+  enrolled_count: number;
+  progress: number;
+  status: CourseStatus;
+  category: string;
+  duration: string;
+}
+
+export interface Enrollment {
+  id: string;
+  student_name: string;
+  student_avatar: string | null;
+  course_title: string;
+  progress: number;
+  completion_date: string | null;
+  certificate_issued: boolean;
+}
+
+export interface DashboardStats {
+  total_candidates: number;
+  total_candidates_change: number;
+  active_jobs: number;
+  active_jobs_new_today: number;
+  placements_made: number;
+  placements_change: number;
+  revenue: number;
+  revenue_change: number;
+}
+
+export interface ActivityItem {
+  id: string;
+  actor_name: string;
+  actor_avatar: string | null;
+  action: string;
+  timestamp: string;
 }
