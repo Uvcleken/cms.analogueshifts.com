@@ -3,7 +3,7 @@ import axios from "@/lib/axios";
 import Cookies from "js-cookie";
 
 import { useRouter } from "next/navigation";
-import { UsersInfo } from "@/types/schema";
+import { type UsersInfo } from "@/types/schema";
 
 interface GetUsersParams {
   url: string;
