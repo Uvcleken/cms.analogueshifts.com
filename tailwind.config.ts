@@ -10,6 +10,17 @@ export default {
   theme: {
   	extend: {
   		colors: {
+  			'as-teal': '#1C7272',
+  			'as-teal-dark': '#0F4A4A',
+  			'as-amber': '#F5A623',
+  			'as-amber-hover': '#E8931A',
+  			'as-surface': '#F7FAFA',
+  			'as-text': '#0D1F1F',
+  			'as-text-secondary': '#5A7A7A',
+  			'as-border': '#DCE9E9',
+  			'as-success': '#22A87A',
+  			'as-danger': '#E84545',
+  			'as-info': '#3B9EE0',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
