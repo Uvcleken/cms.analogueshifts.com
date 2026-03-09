@@ -1,5 +1,5 @@
 "use client";
-import { UserCollection } from "@/types/schema";
+import { type UserCollection } from "@/types/schema";
 import React, { createContext, useContext, useState } from "react";
 
 // Define the correct type for the context

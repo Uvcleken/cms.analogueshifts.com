@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { UsersInfo } from "@/types/schema";
+import { type UsersInfo } from "@/types/schema";
 import { useUsers } from "@/hooks/users";
 import { Input } from "@/components/ui/input";
 import {
